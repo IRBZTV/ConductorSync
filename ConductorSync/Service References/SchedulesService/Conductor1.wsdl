@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="DeleteConductors">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Start" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="End" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteConductorsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="InsertConductors">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Duration" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Dt" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertConductorsResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="DeleteConductorsSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteConductors" />
+  </wsdl:message>
+  <wsdl:message name="DeleteConductorsSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteConductorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertConductorsSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertConductors" />
+  </wsdl:message>
+  <wsdl:message name="InsertConductorsSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertConductorsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ConductorSoap">
+    <wsdl:operation name="DeleteConductors">
+      <wsdl:input message="tns:DeleteConductorsSoapIn" />
+      <wsdl:output message="tns:DeleteConductorsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertConductors">
+      <wsdl:input message="tns:InsertConductorsSoapIn" />
+      <wsdl:output message="tns:InsertConductorsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConductorSoap" type="tns:ConductorSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DeleteConductors">
+      <soap:operation soapAction="http://tempuri.org/DeleteConductors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertConductors">
+      <soap:operation soapAction="http://tempuri.org/InsertConductors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ConductorSoap12" type="tns:ConductorSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DeleteConductors">
+      <soap12:operation soapAction="http://tempuri.org/DeleteConductors" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertConductors">
+      <soap12:operation soapAction="http://tempuri.org/InsertConductors" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Conductor">
+    <wsdl:port name="ConductorSoap" binding="tns:ConductorSoap">
+      <soap:address location="http://77.36.163.148/core/Conductor.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ConductorSoap12" binding="tns:ConductorSoap12">
+      <soap12:address location="http://77.36.163.148/core/Conductor.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
